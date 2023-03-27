@@ -11,6 +11,11 @@ namespace Programmieren2Praktikum
         static void Main(string[] args)
         {
             
+            ParkHouse parkHouse1 = new ParkHouse(5);
+            ParkHouse parkHouse2 = new ParkHouse(5);
+            Car car1 = new Car("UL32", CarBrand.Leutekutsche, DriveType.Diesel, 4, parkHouse1);
+            Car car2 = new Car("FU43", CarBrand.Leutekutsche, DriveType.Diesel, 4, parkHouse1);
+            Car car3 = new Car("NU43", CarBrand.OnlyOffRoad , DriveType.Hybrid, 4, parkHouse1);
         }
     }
 }

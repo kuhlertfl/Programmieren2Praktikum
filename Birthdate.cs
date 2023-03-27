@@ -8,9 +8,12 @@ namespace Programmieren2Praktikum
 {
     internal class Birthdate
     {
+        //fields
         int day;
         int month;
         int year;
+
+        //Propertys
         public int Day
         {
             private set { day = value; }
@@ -26,6 +29,16 @@ namespace Programmieren2Praktikum
             private set { year = value; }
             get { return year; }
         }
+        //Constructor
+        publiv Birthdate(int day, int month, int year)
+        {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+
+        //Methods
         public override string ToString()
         => $"{day}.{month}.{year}";
     }

@@ -8,12 +8,39 @@ namespace Programmieren2Praktikum
 {
     internal class Car
     {
+        //fields
         string licensePlate;
         CarBrand carBrand;
         DriveType driveTyp;
         int numberOfSeats;
-        ParkHouse parkhaus;
+        ParkHouse parkHouse;
+        //operator overloads
+        public static Car[] operator +(Car[] cars, Car car)
+        {
+            for (int i = 0; i < cars.Length; i++)
+            {
+                if (cars[i] == null)
+                {
+                    cars[i] = car;
+                }
+            }
+            return cars;
+        }
+        public static bool operator ==(Car car1, Car car2) => car1.LicensePlate == car2.LicensePlate;
+        public static bool operator !=(Car car1, Car car2) => !(car1 == car2);
+        public static Car[] operator -(Car[] cars, Car searchedCar)
+        {
+            for (int i = 0; i < cars.Length; i++)
+            {
+                if (cars[i] == searchedCar)
+                {
+                    cars[i] = null;
+                }
+            }
+            return cars;
+        }
 
+        //Propertys
         public string LicensePlate
         {
             private set { licensePlate = value; }
@@ -36,8 +63,18 @@ namespace Programmieren2Praktikum
         }
         public ParkHouse Parkhouse
         {
-            private set { parkhaus = value; }
-            get { return parkhaus; }
+            private set { parkHouse = value; }
+            get { return parkHouse; }
+        }
+
+        //Constructor
+        public Car(string licensePlate, CarBrand carBrand, DriveType driveType, int numberOfSeats, ParkHouse parkHouse)
+        {
+            this.LicensePlate = licensePlate;
+            this.CarBrand = carBrand;
+            this.DriveType = driveTyp;
+            this.numberOfSeats = numberOfSeats;
+            this.parkHouse = parkHouse;
         }
     }
 }

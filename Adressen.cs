@@ -8,11 +8,13 @@ namespace Programmieren2Praktikum
 {
     internal class Address
     {
+        //fields
         string street;
         string city;
         int zipCode;
         string country;
 
+        //Propertys
         public string Street
         {
             private set { street = value; }
@@ -32,6 +34,14 @@ namespace Programmieren2Praktikum
         {
             private set { this.country = value; }
             get { return this.country; }
+        }
+        //Constructor
+        public Address(string street, string city, int zipCode, string country)
+        {
+            this.street = street;
+            this.city = city;
+            this.zipCode = zipCode;
+            this.country = country;
         }
         public override string ToString()
         => $"Street:{this.street}, City:{this.city}, ZipCode:{this.zipCode}, Country:{this.country}";

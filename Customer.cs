@@ -8,6 +8,7 @@ namespace Programmieren2Praktikum
 {
     internal class Customer
     {
+        //fields
         int customNumber;
         Address address;
         Birthdate birthdate;
@@ -15,6 +16,7 @@ namespace Programmieren2Praktikum
         DriveType driveType;
         CarBrand carBrand;
 
+        //Propertys
         public int CustomNumber
         {
             private set { customNumber = value; }
@@ -29,6 +31,18 @@ namespace Programmieren2Praktikum
         {
             private set { birthdate = value; }
             get { return birthdate; }
+        }
+
+        //Constructor
+        public Customer(int customNumber, Address address, Birthdate birthdate, int numberOfSeats, DriveType driveType, CarBrand carBrand)
+        {
+            this.customNumber = customNumber;
+            this.address = address;
+            this.Birthday = Birthday;
+            this.numberOfSeats = numberOfSeats;
+            this.driveType = driveType;
+            this.carBrand = carBrand;
+
         }
     }
 }
