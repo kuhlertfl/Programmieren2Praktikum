@@ -67,6 +67,10 @@ namespace Programmieren2Praktikum
             get { return parkHouse; }
         }
 
+        //Methods
+        public override string ToString()
+        => $"{LicensePlate}";
+
         //Constructor
         public Car(string licensePlate, CarBrand carBrand, DriveType driveType, int numberOfSeats, ParkHouse parkHouse)
         {

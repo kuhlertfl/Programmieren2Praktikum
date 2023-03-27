@@ -13,28 +13,7 @@ namespace Programmieren2Praktikum
         Car[] cars;
 
         //Overload operators
-        public static Car[] operator + (Car[] cars , Car car)
-        {
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (cars[i] == null)
-                {
-                    cars[i] = car;
-                }
-            }
-            return cars;
-        }
-        public static bool operator ==(Car car1, Car car2) => car1.LicensePlate == car2.LicensePlate;
-        public static Car[] operator - (Car[] cars , Car searchedCar)
-        {
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (cars[i] == searchedCar)
-                {
-                    cars[i] == null; 
-                }
-            }
-        }
+        
 
         //Propertys
         public int Capacity
@@ -44,17 +23,39 @@ namespace Programmieren2Praktikum
         }
         public Car[] Cars
         {
-            get { rewturn this.cars; }
+            get { return this.cars; }
         }
 
         //Constructor
-        public ParkHouse(int capacity, Car[] cars = new Car[capacity])
+        public ParkHouse(int capacity, Car[] cars = null)
         {
+            if(cars == null)
+            {
+                return;
+            }
             if(cars.Length > capacity)
             {
                 throw new Exception("The Parkhouse capacity is too low");
             }
             this.cars = cars;
+        }
+
+        //Methods
+        public  Car CarExists(Car car)
+        {
+            if (cars == null)
+            {
+                throw new Exception("Parkhouse is empty");
+                
+            }
+            for (int i = 0; i < cars.Length; i++)
+            {
+                if (cars[i] == car)
+                {
+                    return car;
+                }
+            }
+            return null;
         }
 
         //Indexer
