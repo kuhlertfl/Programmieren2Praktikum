@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programmieren2Praktikum
 {
-    internal class Adressen
+    internal class Address
     {
         string street;
         string city;

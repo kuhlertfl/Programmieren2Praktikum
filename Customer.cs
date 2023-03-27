@@ -9,7 +9,7 @@ namespace Programmieren2Praktikum
     internal class Customer
     {
         int customNumber;
-        string address;
+        Address address;
         Birthdate birthdate;
         int numberOfSeats;
         DriveType driveType;
@@ -20,10 +20,10 @@ namespace Programmieren2Praktikum
             private set { customNumber = value; }
             get { return customNumber; }
         }
-        public string Address
+        public Address Address
         {
-            private set { address = value; }
-            get { return address; }
+            private set { this.address = value; }
+            get { return this.address; }
         }
         public Birthdate Birthday
         {

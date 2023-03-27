@@ -12,7 +12,7 @@ namespace Programmieren2Praktikum
         CarBrand carBrand;
         DriveType driveTyp;
         int numberOfSeats;
-        string parkhaus;
+        ParkHouse parkhaus;
 
         public string LicensePlate
         {
@@ -34,7 +34,7 @@ namespace Programmieren2Praktikum
             private set { numberOfSeats = value; }
             get { return numberOfSeats; }
         }
-        public string Parkhouse
+        public ParkHouse Parkhouse
         {
             private set { parkhaus = value; }
             get { return parkhaus; }

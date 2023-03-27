@@ -10,7 +10,7 @@ namespace Programmieren2Praktikum
     {
         int capacity;
         Car[] cars = { };
-        int indexer;
+        
         public int Capacity
         {
             private set { capacity = value; }
@@ -30,11 +30,7 @@ namespace Programmieren2Praktikum
                 return null;
 
             }
-            set
-            {
-
-
-            }
+            
         }
         public Car[] this[CarBrand carbrand]
         {
@@ -63,7 +59,7 @@ namespace Programmieren2Praktikum
                 }
                 return fittingCars;
             }
-            set { }
+            
         }
     }
 }
