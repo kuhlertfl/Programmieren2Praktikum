@@ -146,14 +146,8 @@ namespace Programmieren2Praktikum
             }
             set
             {
-                if (handyField[k] == null)
-                {
-                    handyField[k] = value;
-                }
-                else
-                {
-                    throw new Exception("address already taken");
-                }
+                
+
             }
         }
     }
