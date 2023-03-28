@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +12,6 @@ namespace Programmieren2Praktikum
         //set fields
         int capacity;
         Car[] cars;
-
-        //Overload operators
-        
 
         //Propertys
         public int Capacity
@@ -27,38 +25,76 @@ namespace Programmieren2Praktikum
         }
 
         //Constructor
-        public ParkHouse(int capacity, Car[] cars = null)
+        public ParkHouse(int capacity)
         {
-            if(cars == null)
+            this.capacity = capacity;
+            this.cars = new Car[capacity];
+        }
+        public ParkHouse(int capacity, Car[] cars)
+        {
+            this.capacity = capacity;
+            this.cars = new Car[capacity];
+            for (int i = 0; i < cars.Length; i++)
             {
-                return;
+                this.cars[i] = cars[i];
             }
-            if(cars.Length > capacity)
+        }
+        //Overload operators
+        public static ParkHouse operator +(ParkHouse parkHouse, Car car)
+        {
+            for (int i = 0; i < parkHouse.cars.Length; i++)
             {
-                throw new Exception("The Parkhouse capacity is too low");
+                if (parkHouse.cars[i] == null)
+                {
+                    parkHouse.cars[i] = car;
+                    return parkHouse;
+                }
             }
-            this.cars = cars;
+            throw new Exception("ParkHouse is full");
+        }
+
+        public static ParkHouse operator -(ParkHouse parkHouse, Car car)
+        {
+            for (int i = 0; i < parkHouse.cars.Length; i++)
+            {
+                if (parkHouse.cars[i] == car)
+                {
+                    parkHouse.cars[i] = null;
+                    return parkHouse;
+                }
+            }
+            throw new Exception("Car is not in the ParkHouse");
+
         }
 
         //Methods
-        public  Car CarExists(Car car)
+        public static Car CarExists(ParkHouse parkHouse, Car car)
         {
-            if (cars == null)
+            
+            for (int i = 0; i < parkHouse.cars.Length; i++)
             {
-                throw new Exception("Parkhouse is empty");
-                
-            }
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (cars[i] == car)
+                if (parkHouse.cars[i] != null)
                 {
-                    return car;
+                    if (parkHouse.cars[i] == car)
+                    {
+                        return car;
+                    }
                 }
+                
             }
             return null;
         }
-
+        public void AddCars(Car[] cars)
+        {
+            this.cars = cars;
+        }
+        public int Length => cars.Length;
         //Indexer
+        public Car this[int index]
+        {
+            get => cars[index];
+            set => cars[index] = value; 
+        }
         public Car this[string gesLicensePlate]
         {
             get
@@ -73,6 +109,8 @@ namespace Programmieren2Praktikum
                 return null;
 
             }
+            
+          
             
         }
         public Car[] this[CarBrand carbrand]

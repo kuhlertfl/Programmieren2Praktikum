@@ -11,16 +11,21 @@ namespace Programmieren2Praktikum
         static void Main(string[] args)
         {
             
-            ParkHouse parkHouse1 = new ParkHouse(5,new Car[5]);
+            ParkHouse parkHouse1 = new ParkHouse(5);
             ParkHouse parkHouse2 = new ParkHouse(5);
             Car car1 = new Car("UL32", CarBrand.Leutekutsche, DriveType.Diesel, 4, parkHouse1);
             Car car2 = new Car("FU43", CarBrand.Leutekutsche, DriveType.Diesel, 4, parkHouse1);
             Car car3 = new Car("NU43", CarBrand.OnlyOffRoad , DriveType.Hybrid, 4, parkHouse1);
             Car[] cars = { car1, car2, car3 };
-            
-            Console.WriteLine(car1);
-            Console.WriteLine(parkHouse1.CarExists(car1));
 
+
+            
+            parkHouse1 = parkHouse1 + car2;
+            Console.WriteLine(ParkHouse.CarExists(parkHouse1,car2));
+            foreach(Car car in parkHouse1.Cars)
+            {
+                Console.WriteLine(car);
+            }
         }
     }
 }

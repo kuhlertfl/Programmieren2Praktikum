@@ -14,31 +14,8 @@ namespace Programmieren2Praktikum
         DriveType driveTyp;
         int numberOfSeats;
         ParkHouse parkHouse;
-        //operator overloads
-        public static Car[] operator +(Car[] cars, Car car)
-        {
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (cars[i] == null)
-                {
-                    cars[i] = car;
-                }
-            }
-            return cars;
-        }
-        public static bool operator ==(Car car1, Car car2) => car1.LicensePlate == car2.LicensePlate;
-        public static bool operator !=(Car car1, Car car2) => !(car1 == car2);
-        public static Car[] operator -(Car[] cars, Car searchedCar)
-        {
-            for (int i = 0; i < cars.Length; i++)
-            {
-                if (cars[i] == searchedCar)
-                {
-                    cars[i] = null;
-                }
-            }
-            return cars;
-        }
+        //overload true false
+        
 
         //Propertys
         public string LicensePlate
@@ -67,6 +44,25 @@ namespace Programmieren2Praktikum
             get { return parkHouse; }
         }
 
+        public static bool operator ==(Car car1, Car car2)
+        {
+            // Check if both cars are null
+            if (ReferenceEquals(car1, null) && ReferenceEquals(car2, null))
+                return true;
+
+            // Check if either car is null
+            if (ReferenceEquals(car1, null) || ReferenceEquals(car2, null))
+                return false;
+
+            // Compare the license plates of the two cars
+            return car1.LicensePlate == car2.LicensePlate;
+        }
+
+        // Overloaded != operator to negate the result of the == operator
+        public static bool operator !=(Car car1, Car car2)
+        {
+            return !(car1 == car2);
+        }
         //Methods
         public override string ToString()
         => $"{LicensePlate}";
