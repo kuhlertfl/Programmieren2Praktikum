@@ -21,32 +21,33 @@ namespace Programmieren2Praktikum
         }
         public Car[] Cars
         {
-            get { return this.cars; }
+            get;
+            set;
         }
 
         //Constructor
         public ParkHouse(int capacity)
         {
-            this.capacity = capacity;
-            this.cars = new Car[capacity];
+            Cars = new Car[capacity];
+            
         }
         public ParkHouse(int capacity, Car[] cars)
         {
             this.capacity = capacity;
-            this.cars = new Car[capacity];
+            Cars = new Car[capacity];
             for (int i = 0; i < cars.Length; i++)
             {
-                this.cars[i] = cars[i];
+                Cars[i] = cars[i];
             }
         }
         //Overload operators
         public static ParkHouse operator +(ParkHouse parkHouse, Car car)
         {
-            for (int i = 0; i < parkHouse.cars.Length; i++)
+            for (int i = 0; i < parkHouse.Cars.Length; i++)
             {
-                if (parkHouse.cars[i] == null)
+                if (parkHouse.Cars[i] == null)
                 {
-                    parkHouse.cars[i] = car;
+                    parkHouse.Cars[i] = car;
                     return parkHouse;
                 }
             }
@@ -55,11 +56,11 @@ namespace Programmieren2Praktikum
 
         public static ParkHouse operator -(ParkHouse parkHouse, Car car)
         {
-            for (int i = 0; i < parkHouse.cars.Length; i++)
+            for (int i = 0; i < parkHouse.Cars.Length; i++)
             {
-                if (parkHouse.cars[i] == car)
+                if (parkHouse.Cars[i] == car)
                 {
-                    parkHouse.cars[i] = null;
+                    parkHouse.Cars[i] = null;
                     return parkHouse;
                 }
             }
@@ -71,11 +72,11 @@ namespace Programmieren2Praktikum
         public static Car CarExists(ParkHouse parkHouse, Car car)
         {
             
-            for (int i = 0; i < parkHouse.cars.Length; i++)
+            for (int i = 0; i < parkHouse.Cars.Length; i++)
             {
-                if (parkHouse.cars[i] != null)
+                if (parkHouse.Cars[i] != null)
                 {
-                    if (parkHouse.cars[i] == car)
+                    if (parkHouse.Cars[i] == car)
                     {
                         return car;
                     }
@@ -86,7 +87,16 @@ namespace Programmieren2Praktikum
         }
         public void AddCars(Car[] cars)
         {
-            this.cars = cars;
+            for (int i = 0; i < Cars.Length; i++)
+            {
+                for (int j = 0; j < cars.Length; j++)
+                {
+                    if (Cars[i] != null)
+                    {
+                        Cars[i] = cars[i];
+                    }
+                }
+            }
         }
         public int Length => cars.Length;
         //Indexer
@@ -99,16 +109,17 @@ namespace Programmieren2Praktikum
         {
             get
             {
-                for (int i = 0; i < cars.Length; i++)
+                for (int i = 0; i < Cars.Length; i++)
                 {
-                    if (cars[i] != null && cars[i].LicensePlate == gesLicensePlate)
+                    if (Cars[i] != null && Cars[i].LicensePlate == gesLicensePlate)
                     {
-                        return cars[i];
+                        return Cars[i];
                     }
                 }
                 return null;
 
             }
+            
             
           
             
@@ -140,6 +151,7 @@ namespace Programmieren2Praktikum
                 }
                 return fittingCars;
             }
+            
             
         }
     }

@@ -21,11 +21,12 @@ namespace Programmieren2Praktikum
 
             
             parkHouse1 = parkHouse1 + car2;
-            Console.WriteLine(ParkHouse.CarExists(parkHouse1,car2));
-            foreach(Car car in parkHouse1.Cars)
+            parkHouse1 = parkHouse1 + car1;
+            for (int i = 0; i < parkHouse1.Cars.Length; i++)
             {
-                Console.WriteLine(car);
+                Console.WriteLine(parkHouse1.Cars[i]);
             }
+            Console.WriteLine(ParkHouse.CarExists(parkHouse1, car1));
         }
     }
 }
