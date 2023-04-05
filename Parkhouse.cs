@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -51,7 +52,7 @@ namespace Programmieren2Praktikum
                     return parkHouse;
                 }
             }
-            throw new Exception("ParkHouse is full");
+            throw new InvalidOperationException("ParkHouse is full");
         }
 
         public static ParkHouse operator -(ParkHouse parkHouse, Car car)
@@ -64,25 +65,40 @@ namespace Programmieren2Praktikum
                     return parkHouse;
                 }
             }
-            throw new Exception("Car is not in the ParkHouse");
+            throw new InvalidOperationException("Car is not in the ParkHouse");
 
         }
+        
 
         //Methods
-        public static Car CarExists(ParkHouse parkHouse, Car car)
+        public void AddFittingCar(Customer customer)
+        {
+            for (int i = 0; i < Cars.Length; i++)
+            {
+                if (Cars[i] != null  && Cars[i].NumberOfSeats == customer.NumberOfSeats)
+                {
+                    customer.Car = Cars[i];
+                    Cars[i] = null;
+                    break;
+                }
+            }
+            
+        }
+        public Car CarExists(Car car)
         {
             
-            for (int i = 0; i < parkHouse.Cars.Length; i++)
+            for (int i = 0; i < Cars.Length; i++)
             {
-                if (parkHouse.Cars[i] != null)
+                if (Cars[i] != null)
                 {
-                    if (parkHouse.Cars[i] == car)
+                    if (Cars[i] == car)
                     {
                         return car;
                     }
                 }
                 
             }
+            Console.WriteLine("Car is not in the ParkHouse");
             return null;
         }
         public void AddCars(Car[] cars)
