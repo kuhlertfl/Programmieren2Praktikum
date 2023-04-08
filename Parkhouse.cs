@@ -27,7 +27,7 @@ namespace Programmieren2Praktikum
         }
 
         //Constructor
-        public ParkHouse(int capacity)
+        public ParkHouse( int capacity )
         {
             Cars = new Car[capacity];
             

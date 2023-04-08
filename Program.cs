@@ -46,11 +46,13 @@ namespace Programmieren2Praktikum
             {
                 Console.WriteLine(car);
             }
+
             //parkHouse1.AddFittingCar(customer1);
+            //customers can either rent a car using a ParkHouse method or a Customer method 
 
             customer1.RentCar(parkHouse1);
             Console.WriteLine("Customer1Car: " + customer1.Car);
-
+            
 
             foreach(Car car in parkHouse1.Cars)
             {
@@ -60,7 +62,8 @@ namespace Programmieren2Praktikum
             
             //Print out the Customers
             Console.WriteLine(customer1 + "\n" + customer2 + "\n" +  customer3);
-
+            //search for a car in parkhouse object
+            Console.WriteLine("Car3 exists in parkHouse 1 ? :" + parkHouse1.CarExists(car3));
 
 
 

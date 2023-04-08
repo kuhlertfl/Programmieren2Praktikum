@@ -30,7 +30,7 @@ namespace Programmieren2Praktikum
             get { return year; }
         }
         //Constructor
-        public Birthdate(int day, int month, int year)
+        public Birthdate( int day, int month, int year )
         {
             this.day = day;
             this.month = month;
@@ -40,6 +40,7 @@ namespace Programmieren2Praktikum
 
         //Methods
         public override string ToString()
-        => $"{day}.{month}.{year}";
+        => $"{ day }.{ month }.{ year }";
+        
     }
 }

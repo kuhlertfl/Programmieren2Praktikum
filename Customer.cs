@@ -51,7 +51,7 @@ namespace Programmieren2Praktikum
         {
             this.customNumber = customNumber;
             this.address = address;
-            this.Birthday = Birthday;
+            this.Birthday = birthdate;
             this.numberOfSeats = numberOfSeats;
             this.driveType = driveType;
             this.carBrand = carBrand;
